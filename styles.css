@@ -13,6 +13,17 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
+    animation: fadeInBody 1.5s ease-in-out;
+}
+
+/* Fade-in animation for the body */
+@keyframes fadeInBody {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 /* Header styling */
@@ -21,6 +32,19 @@ header {
     color: #fff;
     padding: 20px;
     text-align: center;
+    animation: slideDown 1s ease-out;
+}
+
+/* Slide-down animation for header */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 /* Navigation bar */
@@ -29,25 +53,17 @@ nav {
     padding: 10px 0;
 }
 
-nav ul {
-    list-style: none;
-    text-align: center;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 15px;
-}
-
+/* Navigation link animation on hover */
 nav ul li a {
     color: white;
     text-decoration: none;
     padding: 10px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 nav ul li a:hover {
     background-color: #444;
+    transform: scale(1.1);
 }
 
 /* Section styles */
@@ -57,19 +73,25 @@ section {
     background-color: white;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    animation: bounceIn 1s ease;
 }
 
-h2 {
-    margin-bottom: 10px;
-    color: #333;
+/* Bounce-in animation for sections */
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
-p {
-    margin-bottom: 10px;
-    font-size: 16px;
-}
-
-/* Footer styling */
+/* Floating animation for footer */
 footer {
     background: #333;
     color: #fff;
@@ -78,4 +100,49 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
+    animation: float 3s infinite ease-in-out;
+}
+
+/* Float animation for footer */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Move sections from left to right */
+section:nth-child(even) {
+    animation: slideLeft 1s ease-out;
+}
+
+@keyframes slideLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+section:nth-child(odd) {
+    animation: slideRight 1s ease-out;
+}
+
+@keyframes slideRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
